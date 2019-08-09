@@ -24,6 +24,8 @@ namespace Slick.Api.Controllers
         public IActionResult Post(SpecialisationLevel specialisationLevel)
         {
             var newLevel = specialisationLevelService.Create(specialisationLevel);
+            if (newLevel.Id == Guid.Empty)
+                return StatusCode(500);
             return CreatedAtAction("Get", newLevel);
         }
 
