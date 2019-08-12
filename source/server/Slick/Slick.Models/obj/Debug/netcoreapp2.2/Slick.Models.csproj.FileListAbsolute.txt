@@ -1,9 +1,0 @@
-C:\Users\Elmos\source\repos\slick\source\server\Slick\Slick.Models\bin\Debug\netcoreapp2.2\Slick.Models.deps.json
-C:\Users\Elmos\source\repos\slick\source\server\Slick\Slick.Models\bin\Debug\netcoreapp2.2\Slick.Models.dll
-C:\Users\Elmos\source\repos\slick\source\server\Slick\Slick.Models\bin\Debug\netcoreapp2.2\Slick.Models.pdb
-C:\Users\Elmos\source\repos\slick\source\server\Slick\Slick.Models\obj\Debug\netcoreapp2.2\Slick.Models.csprojAssemblyReference.cache
-C:\Users\Elmos\source\repos\slick\source\server\Slick\Slick.Models\obj\Debug\netcoreapp2.2\Slick.Models.csproj.CoreCompileInputs.cache
-C:\Users\Elmos\source\repos\slick\source\server\Slick\Slick.Models\obj\Debug\netcoreapp2.2\Slick.Models.AssemblyInfoInputs.cache
-C:\Users\Elmos\source\repos\slick\source\server\Slick\Slick.Models\obj\Debug\netcoreapp2.2\Slick.Models.AssemblyInfo.cs
-C:\Users\Elmos\source\repos\slick\source\server\Slick\Slick.Models\obj\Debug\netcoreapp2.2\Slick.Models.dll
-C:\Users\Elmos\source\repos\slick\source\server\Slick\Slick.Models\obj\Debug\netcoreapp2.2\Slick.Models.pdb
