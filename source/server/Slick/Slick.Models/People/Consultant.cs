@@ -18,7 +18,8 @@ namespace Slick.Models.People
         public virtual IList<Contract> Contracts { get; set; }
 
         [NotMapped]
-        public Contract CurrentContract {
+        public Contract CurrentContract
+        {
             get
             {
                 return Contracts.OrderByDescending(x => x.StartDate)

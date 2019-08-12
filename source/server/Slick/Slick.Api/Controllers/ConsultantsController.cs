@@ -13,49 +13,49 @@ namespace Slick.Api.Controllers
     [ApiController]
     public class ConsultantsController : ControllerBase
     {
-        private readonly IConsultantService specialisationLevelService;
+        private readonly IConsultantService consultantService;
 
-        public ConsultantsController(IConsultantService specialisationLevelService)
+        public ConsultantsController(IConsultantService consultantService)
         {
-            this.specialisationLevelService = specialisationLevelService;
+            this.consultantService = consultantService;
         }
 
         [HttpPost]
-        public IActionResult Post(Consultant specialisationLevel)
+        public IActionResult Post(Consultant consultant)
         {
-            var newLevel = specialisationLevelService.Create(specialisationLevel);
-            if (newLevel.Id == Guid.Empty)
+            var newConsultant = consultantService.Create(consultant);
+            if (newConsultant.Id == Guid.Empty)
                 return StatusCode(500);
-            return CreatedAtAction("Get", newLevel);
+            return CreatedAtAction("Get", newConsultant);
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            var levels = specialisationLevelService.GetAll();
-            return Ok(levels);
+            var consultants = consultantService.GetAll();
+            return Ok(consultants);
         }
 
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
-            var level = specialisationLevelService.GetById(id);
-            if (level == null)
+            var consultant = consultantService.GetById(id);
+            if (consultant == null)
                 return NotFound();
-            return Ok(level);
+            return Ok(consultant);
         }
 
         [HttpPut]
-        public IActionResult Update(Consultant level)
+        public IActionResult Update(Consultant consultant)
         {
-            specialisationLevelService.Update(level);
+            consultantService.Update(consultant);
             return NoContent();
         }
 
         [HttpDelete]
-        public IActionResult Delete(Consultant level)
+        public IActionResult Delete(Consultant consultant)
         {
-            specialisationLevelService.Delete(level);
+            consultantService.Delete(consultant);
             return NoContent();
         }
     }

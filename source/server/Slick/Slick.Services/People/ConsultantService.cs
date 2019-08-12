@@ -16,7 +16,6 @@ namespace Slick.Services.People
             this.consultantRepository = consultantRepository;
         }
 
-
         public Consultant Create(Consultant level)
         {
             return consultantRepository.Create(level);
@@ -31,7 +30,7 @@ namespace Slick.Services.People
         public IEnumerable<Consultant> GetAll()
         {
             return consultantRepository
-                .GetAll()
+                .GetAllIncluding(x => x.Address, x => x.Contracts, x => x.Specialisations)
                 .Where(x => x.IsDeleted == false)
                 .ToList();
         }
