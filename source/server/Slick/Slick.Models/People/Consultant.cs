@@ -25,5 +25,11 @@ namespace Slick.Models.People
                                 .FirstOrDefault();
             }
         }
+
+        public Consultant()
+        {
+            Specialisations = new List<ConsultantSpecialisation>();
+            Contracts = new List<Contract>();
+        }
     }
 }

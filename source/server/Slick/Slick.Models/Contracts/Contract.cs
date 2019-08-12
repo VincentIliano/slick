@@ -11,7 +11,7 @@ namespace Slick.Models.Contracts
         public Guid ContractTypeId { get; set; }
         public virtual ContractType ContractType { get; set; }
 
-        public Guid ConsultantId { get; set; }
+        public Guid? ConsultantId { get; set; }
         public virtual Consultant Consultant { get; set; }
 
 

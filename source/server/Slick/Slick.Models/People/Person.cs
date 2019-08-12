@@ -15,7 +15,7 @@ namespace Slick.Models.People
         public string Middlename { get; set; }
         public DateTime Birthdate { get; set; }
 
-        public Guid AddressId { get; set; }
+        public Guid? AddressId { get; set; }
         public virtual Address Address { get; set; }
 
         public bool IsDeleted { get; set; }

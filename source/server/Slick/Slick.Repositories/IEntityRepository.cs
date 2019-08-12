@@ -9,7 +9,7 @@ namespace Slick.Repositories
     {
         IQueryable<T> GetAll();
         IQueryable<T> FindBy(Expression<Func<T, bool>> predicate);
-        IQueryable<T> GetAllIncluding(params Expression<Func<T, object>>[] includeProperties)
+        IQueryable<T> GetAllIncluding(params Expression<Func<T, object>>[] includeProperties);
         T GetById(Guid id);
         T Create(T model);
         void Update(T model);
