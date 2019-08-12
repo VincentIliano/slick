@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Slick.Models.Contact;
+using Slick.Models.Contracts;
 using Slick.Models.People;
 using Slick.Models.Skills;
 using System;
@@ -20,7 +21,9 @@ namespace Slick.Database
         public DbSet<Specialisation> Specialisations { get; set; }
         public DbSet<Address> Addresses{ get; set; }
         public DbSet<ConsultantSpecialisation> ConsultantSpecialisations { get; set; }
-        public DbSet<SpecialisationLevel> SpecialisationLevel { get; set; }
+        public DbSet<SpecialisationLevel> SpecialisationLevels { get; set; }
+        public DbSet<ContractType> ContractTypes { get; set; }
+        public DbSet<Contract> Contracts { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

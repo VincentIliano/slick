@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Slick.Repositories.Skills;
+using Slick.Models.Skills;
+using Slick.Repositories;
 using Slick.Services.Skills;
 
 namespace Slick.Api
@@ -13,7 +14,7 @@ namespace Slick.Api
 
         public static void RegisterRepositories(this IServiceCollection services)
         {
-            services.AddTransient<ISpecialisationLevelRepository, SpecialisationLevelRepository>();
+            services.AddTransient<IEntityRepository<SpecialisationLevel>, EntityRepository<SpecialisationLevel>>();
         }
     }
 }

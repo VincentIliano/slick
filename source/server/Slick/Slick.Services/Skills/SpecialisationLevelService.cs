@@ -2,43 +2,44 @@
 using System.Collections.Generic;
 using System.Text;
 using Slick.Models.Skills;
-using Slick.Repositories.Skills;
+using Slick.Repositories;
 
 namespace Slick.Services.Skills
 {
     public class SpecialisationLevelService : ISpecialisationLevelService
     {
-        private ISpecialisationLevelRepository SpecialisationLevelRepository;
+        private IEntityRepository<SpecialisationLevel> specialisationLevelRepository;
 
-        public SpecialisationLevelService(ISpecialisationLevelRepository specialisationLevelRepository)
+        public SpecialisationLevelService(IEntityRepository<SpecialisationLevel> specialisationLevelRepository)
         {
-            SpecialisationLevelRepository = specialisationLevelRepository;
+            this.specialisationLevelRepository = specialisationLevelRepository;
         }
+
 
         public SpecialisationLevel Create(SpecialisationLevel level)
         {
-            return SpecialisationLevelRepository.Create(level);
+            return specialisationLevelRepository.Create(level);
         }
 
         public void Delete(SpecialisationLevel level)
         {
             level.IsDeleted = true;
-            SpecialisationLevelRepository.Update(level);
+            specialisationLevelRepository.Update(level);
         }
 
         public IEnumerable<SpecialisationLevel> GetAll()
         {
-            return SpecialisationLevelRepository.GetAll();
+            return specialisationLevelRepository.GetAll();
         }
 
         public SpecialisationLevel GetById(Guid id)
         {
-            return SpecialisationLevelRepository.GetById(id);
+            return specialisationLevelRepository.GetById(id);
         }
 
         public void Update(SpecialisationLevel level)
         {
-            SpecialisationLevelRepository.Update(level);
+            specialisationLevelRepository.Update(level);
         }
     }
 }

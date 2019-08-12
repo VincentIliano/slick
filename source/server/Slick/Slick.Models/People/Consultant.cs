@@ -1,5 +1,8 @@
-﻿using Slick.Models.Skills;
+﻿using Slick.Models.Contracts;
+using Slick.Models.Skills;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace Slick.Models.People
 {
@@ -12,5 +15,15 @@ namespace Slick.Models.People
 
         public virtual IList<ConsultantSpecialisation> Specialisations { get; set; }
 
+        public virtual IList<Contract> Contracts { get; set; }
+
+        [NotMapped]
+        public Contract CurrentContract {
+            get
+            {
+                return Contracts.OrderByDescending(x => x.StartDate)
+                                .FirstOrDefault();
+            }
+        }
     }
 }

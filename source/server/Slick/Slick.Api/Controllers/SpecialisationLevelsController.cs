@@ -36,7 +36,7 @@ namespace Slick.Api.Controllers
             return Ok(levels);
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
             var level = specialisationLevelService.GetById(id);

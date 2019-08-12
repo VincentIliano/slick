@@ -1,5 +1,4 @@
 ﻿using Slick.Models.Skills;
-using Slick.Repositories.Skills;
 using System;
 using System.Collections.Generic;
 using System.Text;

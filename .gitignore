@@ -10,6 +10,8 @@
 *.userosscache
 *.sln.docstates
 
+\bin
+bin\
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
@@ -350,3 +352,8 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+*.dll
+source/server/Slick/Slick.Api/bin/Debug/netcoreapp2.2/Slick.Api.dll
+*.dll
+*.dll
+source/server/Slick/.vs/Slick/v16/.suo
