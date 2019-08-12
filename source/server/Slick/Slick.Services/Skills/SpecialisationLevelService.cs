@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Slick.Models.Skills;
 using Slick.Repositories;
@@ -29,7 +30,10 @@ namespace Slick.Services.Skills
 
         public IEnumerable<SpecialisationLevel> GetAll()
         {
-            return specialisationLevelRepository.GetAll();
+            return specialisationLevelRepository
+                .GetAll()
+                .Where(x => x.IsDeleted == false)
+                .ToList();
         }
 
         public SpecialisationLevel GetById(Guid id)

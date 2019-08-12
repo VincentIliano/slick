@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Slick.Database;
 using Slick.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace Slick.Repositories
 {
@@ -30,9 +31,24 @@ namespace Slick.Repositories
             entitiesContext.SaveChanges();
         }
 
-        public IEnumerable<T> GetAll()
+        public IQueryable<T> GetAll()
         {
-            return entitiesContext.Set<T>().ToList();
+            return entitiesContext.Set<T>();
+        }
+
+        public IQueryable<T> FindBy(Expression<Func<T, bool>> predicate)
+        {
+            return entitiesContext.Set<T>().Where(predicate);
+        }
+
+        public IQueryable<T> GetAllIncluding(params Expression<Func<T, object>>[] includeProperties)
+        {
+            IQueryable<T> query = entitiesContext.Set<T>();
+            foreach (var includedProperty in includeProperties)
+            {
+                query = query.Include(includedProperty);
+            }
+            return query;
         }
 
         public T GetById(Guid id)

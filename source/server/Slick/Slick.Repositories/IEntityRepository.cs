@@ -1,13 +1,15 @@
 ﻿using Slick.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace Slick.Repositories
 {
-    public interface IEntityRepository<T> where T: BaseEntity, new()
+    public interface IEntityRepository<T> where T : BaseEntity, new()
     {
-        IEnumerable<T> GetAll();
+        IQueryable<T> GetAll();
+        IQueryable<T> FindBy(Expression<Func<T, bool>> predicate);
+        IQueryable<T> GetAllIncluding(params Expression<Func<T, object>>[] includeProperties)
         T GetById(Guid id);
         T Create(T model);
         void Update(T model);
