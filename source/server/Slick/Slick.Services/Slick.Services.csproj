@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.0.18" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Slick.Models\Slick.Models.csproj" />
     <ProjectReference Include="..\Slick.Repositories\Slick.Repositories.csproj" />
   </ItemGroup>

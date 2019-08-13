@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging.Console;
 using Microsoft.Extensions.Logging.Debug;
 using Slick.Models.Contact;
 using Slick.Models.Contracts;
+using Slick.Models.Customers;
 using Slick.Models.People;
 using Slick.Models.Skills;
 using System;
@@ -37,6 +38,12 @@ namespace Slick.Database
         public DbSet<SpecialisationLevel> SpecialisationLevels { get; set; }
         public DbSet<ContractType> ContractTypes { get; set; }
         public DbSet<Contract> Contracts { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<Employee> Employee { get; set; }
+        public DbSet<AccountConsultant> AccountConsultant { get; set; }
+        public DbSet<AccountManager> AccountManager { get; set; }
+
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

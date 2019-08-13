@@ -46,6 +46,11 @@ namespace Slick.Services.Contracts
             return contractRepository.GetById(id);
         }
 
+        public IEnumerable<Contract> GetContractsForConsultant(Guid consultantId)
+        {
+            return contractRepository.FindBy(c => c.ConsultantId == consultantId).ToList();
+        }
+
         public void Update(Contract contract)
         {
             contractRepository.Update(contract);

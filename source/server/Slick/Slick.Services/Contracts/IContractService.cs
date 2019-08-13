@@ -11,6 +11,7 @@ namespace Slick.Services.Contracts
     {
         IEnumerable<Contract> GetAll();
         IEnumerable<Contract> GetActiveContracts();
+        IEnumerable<Contract> GetContractsForConsultant(Guid consultantId);
         Contract GetById(Guid id);
         void Update(Contract contract);
         void Delete(Contract contract);
