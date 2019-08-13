@@ -36,6 +36,16 @@ namespace Slick.Api.Controllers
             return Ok(consultants);
         }
 
+        [Route("[action]")]
+        [HttpGet]
+        public IActionResult GetOverview([FromQuery]string orderby, [FromQuery]bool isDescending, [FromQuery] int page, [FromQuery] int size)
+        {
+            var consultants = consultantService.GetOverview(orderby, isDescending, page, size);
+            if (consultants == null)
+                return NotFound();
+            return Ok(consultants);
+        }
+
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {

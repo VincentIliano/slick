@@ -30,7 +30,7 @@ namespace Slick.Services.People
         public IEnumerable<Consultant> GetAll()
         {
             return consultantRepository
-                .GetAllIncluding(x => x.Address, x => x.Contracts, x => x.Specialisations)
+                .GetAllIncluding(x => x.Address, x => x.Specialisations)
                 .Where(x => x.IsDeleted == false)
                 .ToList();
         }
@@ -38,6 +38,11 @@ namespace Slick.Services.People
         public Consultant GetById(Guid id)
         {
             return consultantRepository.GetById(id);
+        }
+
+        public IEnumerable<Consultant> GetOverview(string orderby, bool isDescending, int page, int size)
+        {
+            return consultantRepository.GetAllOverview(orderby, isDescending, page, size).ToList();
         }
 
         public void Update(Consultant level)

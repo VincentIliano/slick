@@ -14,7 +14,6 @@ namespace Slick.Database
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             :base(options)
         {
-
         }
 
         public DbSet<Consultant> Consultants { get; set; }

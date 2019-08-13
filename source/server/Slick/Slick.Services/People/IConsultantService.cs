@@ -12,5 +12,6 @@ namespace Slick.Services.People
         void Update(Consultant level);
         void Delete(Consultant level);
         Consultant Create(Consultant level);
+        IEnumerable<Consultant> GetOverview(string orderby,bool isDescending, int page, int size);
     }
 }

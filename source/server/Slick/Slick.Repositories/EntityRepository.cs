@@ -5,6 +5,7 @@ using Slick.Models;
 using System;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Linq.Dynamic.Core;
 
 namespace Slick.Repositories
 {
@@ -49,6 +50,19 @@ namespace Slick.Repositories
                 query = query.Include(includedProperty);
             }
             return query;
+        }
+
+        public IQueryable<T> GetAllOverview(string orderby, bool isDescending, int page, int size)
+        {
+            var order = orderby + " " + (isDescending ? "descending" : "ascending");
+
+            var query = entitiesContext.Set<T>()
+                .OrderBy(order)
+                .Skip((page - 1)  * size)
+                .Take(size);
+
+            return query;
+
         }
 
         public T GetById(Guid id)
