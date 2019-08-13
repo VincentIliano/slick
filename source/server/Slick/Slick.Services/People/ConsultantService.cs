@@ -30,7 +30,7 @@ namespace Slick.Services.People
         public IEnumerable<Consultant> GetAll()
         {
             return consultantRepository
-                .GetAllIncluding(x => x.Address, x => x.Specialisations)
+                .GetAllIncluding(x => x.Address, x => x.Contracts, x => x.Specialisations)
                 .Where(x => x.IsDeleted == false)
                 .ToList();
         }

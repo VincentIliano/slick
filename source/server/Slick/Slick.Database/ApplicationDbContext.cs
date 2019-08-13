@@ -1,4 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
+using Microsoft.Extensions.Logging.Debug;
 using Slick.Models.Contact;
 using Slick.Models.Contracts;
 using Slick.Models.People;
@@ -14,7 +17,18 @@ namespace Slick.Database
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             :base(options)
         {
+
         }
+
+        //static LoggerFactory object
+        //public static readonly ILoggerFactory loggerFactory = new LoggerFactory(new[] {
+        //      new ConsoleLoggerProvider((_, __) => true, true)
+        //});
+
+        //static LoggerFactory object
+        public static readonly ILoggerFactory loggerFactory = new LoggerFactory(new[] {
+              new DebugLoggerProvider()
+        });
 
         public DbSet<Consultant> Consultants { get; set; }
         public DbSet<Specialisation> Specialisations { get; set; }
@@ -28,6 +42,16 @@ namespace Slick.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            
+            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseLoggerFactory(loggerFactory)  //tie-up DbContext with LoggerFactory object
+            .EnableSensitiveDataLogging()
+            .UseSqlServer(@"Data Source=ELMOS-KG4STNS\SQLELMOS;Initial Catalog=slick;Integrated Security=True");
+            
         }
     }
 }
