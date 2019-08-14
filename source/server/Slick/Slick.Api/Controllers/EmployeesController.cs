@@ -52,13 +52,13 @@ namespace Slick.Api.Controllers
 
                 foreach (var c in employeesFromDb)
                 {
-                    employeeDtos.Add(Mapper.mapEmployee(c));
+                    employeeDtos.Add(Mapper.MapEmployee(c));
                 }
 
                 return Ok(employeeDtos);
             }
             var employees = employeeService.GetAll();
-            return Ok(Mapper.mapEmployeeList(employees));
+            return Ok(Mapper.MapEmployees(employees));
         }
 
         [Route("[action]")]
@@ -78,7 +78,7 @@ namespace Slick.Api.Controllers
             if (c == null)
                 return NotFound();
 
-            var employeeDto = Mapper.mapEmployee(c);
+            var employeeDto = Mapper.MapEmployee(c);
 
             return Ok(employeeDto);
         }

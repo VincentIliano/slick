@@ -14,9 +14,9 @@ namespace Slick.Services.People
         IEnumerable<Consultant> GetByfirstName(string firstname, string sort);
         IEnumerable<Consultant> GetByLastname(string lastname);
         IEnumerable<Consultant> GetByLastname(string lastname, string sort);
-        void Update(Consultant level);
-        void Delete(Consultant level);
-        Consultant Create(Consultant level);
+        void Update(Consultant consultant);
+        void Delete(Consultant consultant);
+        Consultant Create(Consultant consultant);
         IEnumerable<Consultant> GetOverview(string orderby,bool isDescending, int page, int size);
     }
 }

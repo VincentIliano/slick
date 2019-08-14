@@ -21,6 +21,7 @@ namespace Slick.Api
             services.AddTransient<IAccountService, AccountService>();
             services.AddTransient<IAccountManagerService, AccountManagerService>();
             services.AddTransient<IEmployeeService, EmployeeService>();
+            services.AddTransient<IAccountConsultantService, AccountConsultantService>();
         }
 
         public static void RegisterRepositories(this IServiceCollection services)
@@ -31,6 +32,7 @@ namespace Slick.Api
             services.AddTransient<IEntityRepository<Account>, EntityRepository<Account>>();
             services.AddTransient<IEntityRepository<AccountManager>, EntityRepository<AccountManager>>();
             services.AddTransient<IEntityRepository<Employee>, EntityRepository<Employee>>();
+            services.AddTransient<IEntityRepository<AccountConsultant>, EntityRepository<AccountConsultant>>();
         }
     }
 }

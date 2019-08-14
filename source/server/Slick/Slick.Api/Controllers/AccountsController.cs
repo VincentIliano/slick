@@ -108,7 +108,7 @@ namespace Slick.Api.Controllers
                 accountDto.AccountManagers.Add(new AccountManagerDto
                 {
                     Account = accountDto,
-                    Employee = Mapper.mapEmployee(employeeService.GetById(accountManager.EmployeeId)),
+                    Employee = Mapper.MapEmployee(employeeService.GetById(accountManager.EmployeeId)),
                     IsActive = accountManager.IsActive
                 });
             }

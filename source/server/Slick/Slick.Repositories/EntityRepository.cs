@@ -20,7 +20,9 @@ namespace Slick.Repositories
 
         public T Create(T model)
         {
-            entitiesContext.Set<T>().Add(model);
+            //entitiesContext.Set<T>().Add(model);
+            EntityEntry dbEntry = entitiesContext.Entry(model);
+            dbEntry.State = Microsoft.EntityFrameworkCore.EntityState.Added;
             entitiesContext.SaveChanges();
             return model;
         }
@@ -69,6 +71,7 @@ namespace Slick.Repositories
         {
             return entitiesContext.Set<T>().Find(id);
         }
+
 
         public void Update(T model)
         {
