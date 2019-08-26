@@ -1,0 +1,24 @@
+@import '../scss/settings/s.colors.scss';
+
+.c-consultant-detail{
+    margin:20px;
+    padding: 15px;
+
+    color:white;
+
+    background-color: $primaryColor;
+
+    .c-consultant-detail__group{
+        display: block;
+    }
+
+    .c-consultant-detail__label{
+        display: inline-block;
+        margin: 10px;
+    }
+
+    .c-consultant-detail__value{
+        display: inline-block;
+        margin: 10px;
+    }
+}

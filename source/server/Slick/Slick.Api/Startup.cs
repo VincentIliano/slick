@@ -46,6 +46,7 @@ namespace Slick.Api
 
             services.RegisterServices();
             services.RegisterRepositories();
+            services.ConfigureCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,6 +66,7 @@ namespace Slick.Api
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseCors("CorsPolicy");
 
             app.UseMvc(routes =>
             {

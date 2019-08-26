@@ -34,5 +34,19 @@ namespace Slick.Api
             services.AddTransient<IEntityRepository<Employee>, EntityRepository<Employee>>();
             services.AddTransient<IEntityRepository<AccountConsultant>, EntityRepository<AccountConsultant>>();
         }
+
+        public static void ConfigureCors(this IServiceCollection services)
+        {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", corsBuilder =>
+                {
+                    corsBuilder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials();
+                });
+            });
+        }
     }
 }

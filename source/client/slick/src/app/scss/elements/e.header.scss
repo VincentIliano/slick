@@ -1,0 +1,17 @@
+@import '../settings/s.colors.scss';
+
+.e-header{
+    background-color: $primaryColor;
+    color: white;
+
+    padding: 1px 40px;
+    margin: 0;
+    border-bottom:3px solid $color3;
+
+    // position:sticky;
+    // top:0px;
+
+    .e-header_title{
+        margin: 0;
+    }
+}

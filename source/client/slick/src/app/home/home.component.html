@@ -1,0 +1,16 @@
+<div class="c-consultants-list">
+    <h2 class="c-consultants-list__title">Consultants</h2>
+    <table class="c-consultants-list__table table">
+        <thead>
+            <th>Naam</th>
+            <th>Email</th>
+        </thead>
+        <tbody >
+            <tr *ngFor="let c of consultants" class="c-consultants-list__row" (click)="onClickConsultant(c)">
+                <td [hidden]="true">{{c.id}}</td>
+                <td>{{c.name}}</td>
+                <td>{{c.email}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

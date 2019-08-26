@@ -1,0 +1,36 @@
+@import '../settings/s.colors.scss';
+
+.c-side-menu{
+   background-color: $backgroundColor;
+   width: 200px;
+//    height: 100%;
+   flex-grow: 0;
+   border-right: 3px double $color3;
+
+   .c-side-menu__item{
+       list-style: none;
+       padding: 5px;
+
+       margin: 10px;
+
+       background-color: $secondaryColor;
+       border-radius: 5px;
+
+        &:hover{
+            background-color: $primaryColor;
+        }
+
+        &:active{
+            background-color: darken($primaryColor,20%);
+            border: 1px solid darken($primaryColor,30%);
+        }
+
+       a{
+           display: block;
+           width: 100%;
+           height: 100%;
+           color:white;
+           text-decoration: none;
+       }
+   }
+}
